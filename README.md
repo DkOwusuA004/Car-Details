@@ -38,7 +38,7 @@
     </li>
   </ol>
 </details>
-<P>The main goal of this project is to answer the questions "".</P>
+<P>The main goal of this project is to answer the following questions; "Which manufacturers were top based on the number of cars sold?", "What was the most purchased transmission?" and "Which manufacturers were top based on the total selling price of cars sold?".</P>
 
 <h2>Business Understanding</h2>
 
@@ -46,62 +46,60 @@
 <p>This analysis takes place between 2010 and 2020.</p>
 
 **Credibility Criteria**  
-<p> The Bigfoot sightings were classified into 3 report types:
+<p> The cars were classified into 4 fuel types:
+     
+  - Petrol
+  - Diesel
+  - LPG
+  - & CNG
 
  </p> 
 
-<p> In this analysis I consider --- to be credible if...</p>
+<p> In this analysis I consider car sales to be credible if they were either petrol or diesel cars</p>
 
 <H2>Data Understanding</H2>
 <h3>Data source</h3>
-<p>The data source I am using is the  Excel file which I obtained through my Introduction to Tableau module in my Data Analytics Essentials course.
+<p>The data source I am using is the  Excel file which I obtained through the database website <a href="https://www.kaggle.com/datasets/akshaydattatraykhare/car-details-dataset/data">Kaggle.</a>
 
-I believe this data to be reliable because firstly, the data was sourced from <a href=https://www.bfro.net/GDB/#usa>WWW.BFRO.NET</a> which is the only scientific research organization exploring the bigfoot/sasquatch mystery. The data used in my analysis is from their comprehensive database of credible sightings and related reports which is maintained by an all-volunteer network of bigfoot/sasquatch researchers, archivists, and investigators in the United States and Canada.
+I believe this data to be reliable because firstly, the data was sourced from <a href="https://www.cardekho.com/">www.cardekho.com</a> which is India's leading car search venture that helps users buy cars that are right for them. Its website and app carry rich automotive content such as expert reviews, detailed specs and prices, comparisons and videos/pictures of all car brands and models available in India. A bunch of young, enthusiastic IT graduates set up the website. Its investors include Google Capital, Tybourne Capital, Hillhouse Capital, Sequoia Capital, HDFC Bank, Ratan Tata and Times Internet.
 </p>
 
 <h3>Variables of Interest</h3>
 <p> The key variables I want to analyse within this project are as follows:
 <ol>
-  <li>Number of sightings</li>
-  <li>States in which sightings occured</li>
-  <li>Counties in which sightings occured</li>
+  <li>Number of cars sold per manufacturer</li>
+  <li>Value of total cars sold per manufacturer</li>
+  <li>Number of cars sold per transmission</li>
 </ol>
 </p>
 
 <h3>Data Types</h3>
 <p>My data contains:
   <ul>
-    <li>Report Type - String</li>
-    <li>Report Class - String</li>
-    <li>Submitted Date - Date and Time</li>
+    <li>Manufacturer - String</li>
+    <li>Model- String</li>
     <li>Year - String</li>
-    <li>Season - String</li>
-    <li>Month - Date and Time</li>
-    <li>State - String</li>
-    <li>County - String</li>
+    <li>Selling Price - Floating Pointing</li>
+    <li>Km Driven - Integer</li>
+    <li>Transmission - String</li>
+    <li>Owner - String</li>
+    <li>Engine - Floating Pointing</li>
+    <li>Seats - Integer</li>
   </ul>
 </p>
 
 <h3>Visualisation Requirements</h3> 
-<p>I want to first use a horizontal bar chart in order to visualise the state with the most sightings. Then I want to use a symbol map in order to visualise which counties within the selected state had the most sightings.</p>
+<p>I want to first use a bar chart to visualise the manufacturers with the most number of cars sold. Then I want to use a treemap to visualise which suppliers generated the most in selling price. Finally, I used a pie chart to show the split between manual and automatic transmission.</p>
 
-<h3>Comparative Analysis</h3>  
-<p> I want to compare sightings within the selected state in 3 different ways: 
-<ol>
-  <li>The season in which reports were made</li>
-  <li>The month in which reports were made </li>
-  <li>The class types of reports made</li>
-</ol>
-
-In order to identify any patterns or trends with when these reports were made.</p>
 
 <H2>Approach</H2>
 
 <h3>Data Collection</h3>
-<p>To collect the data used for this analysis I downloaded an Excel file within the Cisco 'Introduction to Tableau module' in my Data Analytics Essentials course.</p>
+<p>To collect the data used for this analysis I downloaded an Excel file from the Kaggle website from a dataset called <a href="https://www.kaggle.com/datasets/akshaydattatraykhare/car-details-dataset/data">"Car Details Dataset"</a>.</p>
 
 <h3>Data Cleaning</h3>
-<p>First I put a filter on the entire date in order to make the cleaning process easier, I then removed the 'Submitted Date' column as this was irrelevant to my analysis. Then I used conditional formatting on the year column to highlight any data rows outside the range of 1950 - 2018. After this, I filtered all the class C reports and removed them from the dataset as they were not deemed credible enough for the analysis. I then filtered all the 'unknown' cells in the 'Season' column and removed these rows of data as they would've affected my comparative analysis later during the project, I also filtered all the '(blanks)' cells in the month column in order to remove the lines of data that didn't have a specific month as these lines of data would affect my upcoming comparative analysis.</p>
+<p> First I added a filter on the data which would allow me to easily spot unique values within columns. I then converted the selling price and Km-driven columns to numbers and used =COUNTBLANK in column N with a range of A:M to locate any rows with blank cells. Once I had located these blank cells I removed those rows of data to ensure I had the most information possible when creating my visualisations. I then added 2 columns before column B and used =LEFT(A2,FIND(" ",A2)) in cell B2 to pull through the manufacturer name from the Name column, I also used =MID(A2,LEN(B2)+1,LEN(A2)-LEN(B2)) to pull through model. I dragged these formulas down so that they covered the entire dataset. After this, I filtered on years before 2010 and deleted them as my scope was 2010-2020. I also removed fuel types that weren't either petrol or diesel because.... I then removed the rows relating to test-driven cars as I only wanted to include cars that were sold.
+</p>
 
 <h3>Analysis</h3>  
 <p>Using a pivot table I put the state column in the row and values fields and then I sorted the data descending by 'Count of State' which showed me that Washington had the highest number of sightings (506).</p>
@@ -111,11 +109,8 @@ In order to identify any patterns or trends with when these reports were made.</
 
 
 <h2>Visualisations</h2>
-<a href="https://public.tableau.com/app/profile/deiniol.ampomah/viz/BigfootSightings_16995777430520/BigfootSightings1"> <img src="https://github.com/DkOwusuA004/Bigfoot-Sightings/blob/main/Bigfoot%20sightings%20by%20State%20&%20Washington%20sightings%20by%20County%20Dashboard.png?raw=true45f3179c-c7c2-4acd-a123-a800a1676d0c" alt="Bigfoot Sightings Dashboard 1">
+<a href="https://public.tableau.com/app/profile/deiniol.ampomah/viz/CarDetails_17084697056090/Dashboard1"> <img src="https://github.com/DkOwusuA004/Car-Details/assets/139594033/709584e2-e96b-4b96-985a-70ee4e95a6ca" alt="Car Details Dashboard 1">
 </a>
-
-<a href="https://public.tableau.com/app/profile/deiniol.ampomah/viz/BigfootSightings2/BigfootSightings2"><img src="https://github.com/DkOwusuA004/Bigfoot-Sightings/blob/main/Washigton%20sightings%20by%20Season,%20Class%20&%20Month%20Dashboard.png" alt="Bigfoot Sightings Dashboard 2"></a>
-
 
 
 
