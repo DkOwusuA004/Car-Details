@@ -1,0 +1,19 @@
+Add filter to data,,Tableau (Parameters),,Tableau (Dashboard)
+Convert to number,,Most expensive car model during that year ,,Pie chart - Petrol vs Desiel
+=Count blank to find blanks,,Least expensicve model,,Bar chart - Maufacturser (out of top which model sold the most)
+Delete count blank formula ,,Manu that made the most money that year ,,Bar chart - Owners
+remove all rows with at least 1 blank column,,Avg price ,,Pie chart - Manual vs Auto
+Split manufactrer name from model name ,,,,
+"use =LEFT(A3,FIND("" "",A3)) to pull through Manuf",,,,
+"Use =MID(A3,LEN(B3)+1,LEN(A3)-LEN(B3)) to pull through model",,,,
+Paste spec and delete column A,,,,
+Remove all data before 2010,,,,
+Remove any fuel type that isnt petrol or diesel,,,,
+Use find and replace to change numbe rof owners to numbers,,,,
+Remove Test drive cars,,,,
+Remove Tourqe column,,,,
+Convert engine size to Litres ,,,,
+"Use =LEFT(K3,LEN(K3)-LEN(RIGHT(K3,3))) to pull through engine size in CC",,,,
+Multipy by 0.001 to get CC into litres and paste spec,,,,
+Delete milage column,,,,
+Sort by year,,,,
