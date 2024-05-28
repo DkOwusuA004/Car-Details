@@ -28,9 +28,6 @@
       <a href="">Technologies</a>
     </li>
     <li>
-      <a href="">Setup</a>
-    </li>
-    <li>
       <a href="">Status</a>
     </li>
     <li>
@@ -113,7 +110,7 @@ I believe this data to be reliable because firstly, the data was sourced from <a
 <h2>Interpretation</h2>
 <p>Within the dashboard are 3 graphs; 'Number of cars sold by Manufacturer', 'Manual vs Automatic Transmission' and 'Total selling price by Manufacturer'. The 'Number of cars sold by Manufacturer' shows us that Maruti sold the most cars  (1,902). This answers the first question "Which manufacturers were top based on the number of cars sold?".</p>
 
-<p>In order to answer the second question; "What was the most purchased transmission?", we have to look at the 'Manual vs Automatic Transmission' graph. This graph shows us that out of the 6,875 cars sold, the majority of those cars (86%) were manual transmission while only 14% were automatic transmission.</p>
+<p> To answer the second question; "What was the most purchased transmission?", we have to look at the 'Manual vs Automatic Transmission' graph. This graph shows us that out of the 6,875 cars sold, the majority of those cars (86%) were manual transmission while only 14% were automatic transmission.</p>
 
 
 <P>To answer the final question; "Which manufacturers were top based on the total selling price of cars sold?", we can use the 'Total selling price by Manufacturer' graph. This graph shows us that the manufacturer Maruti had the highest total selling price (899.62 million rupees).</P>
