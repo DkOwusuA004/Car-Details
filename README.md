@@ -98,15 +98,11 @@ I believe this data to be reliable because firstly, the data was sourced from <a
 <p>To collect the data used for this analysis I downloaded an Excel file from the Kaggle website from a dataset called <a href="https://www.kaggle.com/datasets/akshaydattatraykhare/car-details-dataset/data">"Car Details Dataset"</a>.</p>
 
 <h3>Data Cleaning</h3>
-<p> First I added a filter on the data which would allow me to easily spot unique values within columns. I then converted the selling price and Km-driven columns to numbers and used =COUNTBLANK in column N with a range of A:M to locate any rows with blank cells. Once I had located these blank cells I removed those rows of data to ensure I had the most information possible when creating my visualisations. I then added 2 columns before column B and used =LEFT(A2,FIND(" ",A2)) in cell B2 to pull through the manufacturer name from the Name column, I also used =MID(A2,LEN(B2)+1,LEN(A2)-LEN(B2)) to pull through model. I dragged these formulas down so that they covered the entire dataset. After this, I filtered on years before 2010 and deleted them as my scope was 2010-2020. I also removed fuel types that weren't either petrol or diesel because.... I then removed the rows relating to test-driven cars as I only wanted to include cars that were sold.
+<p> First I added a filter on the data which would allow me to easily spot unique values within columns. I then converted the selling price and Km-driven columns to numbers and used =COUNTBLANK in column N with a range of A:M to locate any rows with blank cells. Once I had located these blank cells I removed those rows of data to ensure I had the most information possible when creating my visualisations. I then added 2 columns before column B and used =LEFT(A2,FIND(" ",A2)) in cell B2 to pull through the manufacturer name from the Name column, I also used =MID(A2,LEN(B2)+1,LEN(A2)-LEN(B2)) to pull through model. I dragged these formulas down so that they covered the entire dataset. After this, I filtered on years before 2010 and deleted them as my scope was 2010-2020. I also removed fuel types that weren't either petrol or diesel because petrol and diesel cars have historically dominated the automotive market. Analysing these types provides a comprehensive understanding of the majority of vehicles on the road, making my analysis relevant to a larger audience. I then removed the rows relating to test-driven cars as I only wanted to include cars that were sold.
 </p>
 
 <h3>Analysis</h3>  
-<p>Using a pivot table I put the state column in the row and values fields and then I sorted the data descending by 'Count of State' which showed me that Washington had the highest number of sightings (506).</p>
-
-<p>I then created a second pivot table. This time I put 'State' and then 'County' in the Rows field and then I put 'Count of County' in the Values field in order to show sightings per county. I then sorted the data descending by 'Count of County', and then I filtered on the state of Washington in the Row field, as this was the state with the most sightings, which showed me that 'Pierce' was the county with the most sightings.</p>  
-
-
+<p>Using a pivot table I put the manufacturer in the row and put the count of manufacturers and the sum of selling price in the values fields. Using the MAX and Min formulas I pulled through the max and min count of manufacturers and the sum of the selling price which showed me that Maruti had the highest number of cars sold (1902) with the highest total selling price (899,623,919.00 rupees) and Ashok sold the least amount of cars (1) with the lowest total selling price (300,000.00 rupees).</p>
 
 <h2>Visualisations</h2>
 <a href="https://public.tableau.com/app/profile/deiniol.ampomah/viz/CarDetails_17084697056090/Dashboard1"> <img src="https://github.com/DkOwusuA004/Car-Details/assets/139594033/709584e2-e96b-4b96-985a-70ee4e95a6ca" alt="Car Details Dashboard 1">
@@ -115,29 +111,34 @@ I believe this data to be reliable because firstly, the data was sourced from <a
 
 
 <h2>Interpretation</h2>
-<p>Within the first dashboard are 2 graphs; 'Bigfoot sightings by State' and 'Washington sightings by County'. The 'Bigfoot sightings by State' shows us that Washington produced the most Bigfoot sightings (503) between 1950-2018. This answers the first question "Which state within the USA had the most sightings over the period?".</p>
+<p>Within the dashboard are 3 graphs; 'Number of cars sold by Manufacturer', 'Manual vs Automatic Transmission' and 'Total selling price by Manufacturer'. The 'Number of cars sold by Manufacturer' shows us that Maruti sold the most cars  (1,902). This answers the first question "Which manufacturers were top based on the number of cars sold?".</p>
 
-<p>In order to answer the second question; "Within this state which county was responsible for the majority of these sightings?", we have to look at the 'Washington sightings by County' graph. This graph shows us that within Washington, the county with the highest number of sightings is Pierce County with 68 sightings in the period.</p>
+<p>In order to answer the second question; "What was the most purchased transmission?", we have to look at the 'Manual vs Automatic Transmission' graph. This graph shows us that out of the 6,875 cars sold, the majority of those cars (86%) were manual transmission while only 14% were automatic transmission.</p>
 
-<p>Regarding the comparative analysis we can look at tables 'Sightings by season', 'Sightings by month' and Sightings by class'.</p>
 
-<p>Firstly, by looking at the 'Sightings by season' graph, we can see that 40.36% of sightings (203) were reported during Summer, this could be due to the following:
-  <ol>
-    <li>Increased Outdoor Activity</li>
-    <p>During the summer season, a pronounced surge in vacationing and recreational pursuits is observed. Many individuals, particularly outdoor enthusiasts such as campers and hikers, tend to partake in these activities during this period, capitalizing on the more predictable weather conditions. This propensity raises the probability of individuals finding themselves in locations where reported Bigfoot sightings have historically occurred. Furthermore, the summer months represent an optimal time for wildlife observation. Devotees of nature and photography often allocate an increased duration to exploring natural habitats, thereby augmenting the chances of encountering diverse fauna. It is noteworthy that such wildlife encounters, in certain instances, may be misconstrued as potential Bigfoot sightings.</p>
-    <li>Better Weather Conditions/Extended Daylight Hours</li>
-    <p>The elevated temperatures of the summer season render outdoor activities notably more comfortable and enticing. Consequently, individuals are inclined to explore natural habitats, thereby heightening the prospects of wildlife encounters or reporting unconventional sightings. Moreover, the longer duration of daylight during summer extends the time available for outdoor activities. This prolonged visibility window creates additional opportunities for individuals to discern peculiar phenomena and subsequently report such sightings.</p>
-    <li>Wildlife Activity/Migration and Movement Patterns</li>
-    <p>In the summer season, numerous wildlife species undergo heightened activity, influenced by factors like breeding seasons, abundant food availability, and favourable weather conditions. This surge in wildlife activity is prone to result in increased observations and reports from individuals engaged in outdoor activities, particularly in regions recognised for Bigfoot sightings. Furthermore, locales characterised by both documented Bigfoot sightings and escalated wildlife activity may witness elevated instances of human-wildlife interactions. This heightened interaction dynamic amplifies the likelihood of individuals reporting sightings, contributing to the convergence of reported encounters in these areas.</p>
-  </ol>
+<P>To answer the final question; "Which manufacturers were top based on the total selling price of cars sold?", we can use the 'Total selling price by Manufacturer' graph. This graph shows us that the manufacturer Maruti had the highest total selling price (899.62 million rupees).</P>
+
+<p>Firstly, by looking at the 'Number of cars sold by Manufacturer' we can see that Maruti; an Indian subsidiary of Japanese automaker Suzuki sold the majority of cars during the period. The reasons for this could be the following...
+<ol>
+  <li>Affordability and Value for Money</li>
+  <P>Maruti Suzuki offers a wide range of cars that cater to various price segments, providing value for money with competitive pricing, fuel efficiency, and low maintenance costs. This makes their cars attractive to a broad demographic.</P>
+  
+  <li>Strong Brand Loyalty and Trust</li>
+  <p>Over the years, Maruti Suzuki has built a strong reputation for reliability and trustworthiness. Many Indian families have owned Maruti cars for generations, fostering brand loyalty.</P>
+
+  <li>Efficient After-Sales Service</li>
+  <p>Maruti Suzuki’s extensive service network ensures that customers have easy access to maintenance and repairs. The availability of spare parts at affordable prices further enhances customer satisfaction.</P>
+  
+  <li>Government and Regulatory Support</li>
+  <p>Maruti Suzuki has benefited from favourable government policies and regulations, including initiatives promoting the manufacturing sector and incentives for small cars, which form a significant part of their lineup.</P>
+  
+  <li>Local Manufacturing and R&D</li>
+  <p>Maruti Suzuki's strong local manufacturing presence and investment in research and development allow them to produce cars tailored to Indian conditions and preferences, ensuring competitive pricing and better market acceptance.</P>
+</ol>
+
+<p>These above factors collectively give Maruti Suzuki a significant edge over its competitors in the Indian automotive market.</p>
 </p>
 
-<p>Next, looking at the 'sightings by month' graph, we can see that the month of August had 88 sightings reported out of a possible 503 (11.73%). This graph shows us that the summer sightings were greatly influenced by the month of August as the 2nd and 3rd highest months after August were October (68) and September (67) </p>
-
-<p>Finally, the 'sightings by class' graph shows that the majority (58.65%) of reports made were reports involving incidents where a possible sighting was observed at a great distance or in poor lighting conditions </p>
-
-<h2>Potential Biases</h2>
-<p>The most prevalent type of bias that could've affected the conclusion of this project is information bias; many people may have had sightings that could very well fall under Class A or B reports however, for an array of reasons they may not have filed a report. In addition to this, there is the risk of hoax and prank reporting which affects the validity of the data collected, ultimately skewing the data and creating inaccuracies within the analysis. </p>
 
 
 <h2>Technologies</h2>
@@ -150,4 +151,4 @@ I believe this data to be reliable because firstly, the data was sourced from <a
 
 
 <h2>Credits</h2>
-<a href="https://www.kaggle.com/datasets/josephvm/bigfoot-sightings-data">Bigfoot Sightings</a>
+<a href="https://www.kaggle.com/datasets/josephvm/bigfoot-sightings-data">Car Details Dataset</a>
